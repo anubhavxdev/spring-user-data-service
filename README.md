@@ -1,28 +1,33 @@
-# Spring User Data Service (SaaS Edition)
+# Spring User Data Service (Production Edition)
 
-A production-ready, SaaS-level Spring Boot REST API for managing user data with PostgreSQL.
+An enterprise-grade, production-ready Spring Boot REST API for managing user profiles with PostgreSQL.
 
-## 🚀 SaaS Features
-- **Pagination & Sorting**: Efficiently handle large datasets using `Pageable`.
-- **Advanced Search**: Case-insensitive name search.
-- **Data Analytics**: Analytics endpoint for real-time user statistics.
-- **Audit Trails**: Automatic `createdAt` and `updatedAt` timestamps.
-- **Status Management**: Lifecycle management via `ACTIVE`/`INACTIVE` statuses.
-- **Clean Architecture**: Decoupled Service and Repository layers.
+## 🌟 Production Features
+- **API Versioning**: Industry-standard `/api/v1` versioning logic.
+- **Strict Validation**: Bean Validation (JSR-380) for data integrity.
+- **DTO Architecture**: Decoupled Request/Response models to protect data structures.
+- **Unified Exception Handling**: Centralized JSON error responses.
+- **Interactive Documentation**: Built-in Swagger UI and OpenAPI documentation.
+- **Production Logging**: SLF4J/Logback integration for monitoring.
+- **SaaS Components**: Pagination, Sorting, Search, and Analytics.
 
-## 📖 API Documentation
+## 📖 API Documentation (v1)
 
-| Method | Endpoint | Parameters | Description |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/api/users` | `page`, `size`, `sortBy`, `direction` | Paginated & sorted list |
-| `GET` | `/api/users/{id}` | - | Find user by ID |
-| `GET` | `/api/users/search` | `name` | Search users by name |
-| `GET` | `/api/users/stats` | - | Get analytics summary |
-| `POST` | `/api/users` | Body (JSON) | Create/Update user |
-| `PATCH`| `/api/users/{id}/status`| - | Toggle user status |
-| `DELETE`| `/api/users/{id}` | - | Permanent removal |
+Access the interactive documentation via Swagger UI:
+`http://localhost:8080/swagger-ui/index.html`
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/v1/users` | Paginated & sorted users |
+| `GET` | `/api/v1/users/{id}` | Find user by ID |
+| `GET` | `/api/v1/users/search`| Search by name |
+| `GET` | `/api/v1/users/stats` | Analytics summary |
+| `POST` | `/api/v1/users` | Create user (Validated) |
+| `PUT` | `/api/v1/users/{id}` | Update user (Validated) |
+| `PATCH`| `/api/v1/users/{id}/status`| Toggle status |
+| `DELETE`| `/api/v1/users/{id}` | Secure delete |
 
 ## ⚙️ Setup
-1. Configure `application.properties` with your PostgreSQL credentials.
-2. The database table will be auto-created/updated via Hibernate.
-3. Run as a Spring Boot application.
+1. Configure `application.properties`.
+2. Run as Spring Boot app.
+3. Test via Swagger UI or PowerShell.
